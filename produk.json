@@ -1,0 +1,56 @@
+[
+  {
+    "nama": "Papan Duka Cita Standar",
+    "kategori": "duka",
+    "harga": 350000,
+    "gambar": ""
+  },
+  {
+    "nama": "Papan Duka Cita Premium",
+    "kategori": "duka",
+    "harga": 650000,
+    "gambar": ""
+  },
+  {
+    "nama": "Standing Flower Duka",
+    "kategori": "duka",
+    "harga": 900000,
+    "gambar": ""
+  },
+  {
+    "nama": "Papan Selamat Sukses",
+    "kategori": "congrats",
+    "harga": 400000,
+    "gambar": ""
+  },
+  {
+    "nama": "Papan Grand Opening",
+    "kategori": "congrats",
+    "harga": 750000,
+    "gambar": ""
+  },
+  {
+    "nama": "Karangan Wisuda",
+    "kategori": "congrats",
+    "harga": 450000,
+    "gambar": ""
+  },
+  {
+    "nama": "Papan Happy Wedding",
+    "kategori": "wedding",
+    "harga": 600000,
+    "gambar": ""
+  },
+  {
+    "nama": "Bunga Meja Pelaminan",
+    "kategori": "wedding",
+    "harga": 800000,
+    "gambar": ""
+  },
+  {
+    "nama": "Desain Sesuai Permintaan",
+    "kategori": "custom",
+    "harga": 0,
+    "gambar": ""
+  }
+]

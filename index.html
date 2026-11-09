@@ -1,0 +1,400 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Florist Anda – Karangan Bunga Semarang</title>
+<meta name="description" content="Karangan bunga duka cita, ucapan selamat, dan wedding. Pengiriman cepat di Semarang.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,500;9..144,700&family=DM+Sans:wght@400;500;700&display=swap" rel="stylesheet">
+<style>
+:root{
+  --forest:#17352A; --leaf:#3E7B58; --blush:#F4DEE1; --rose:#B3476B;
+  --paper:#FAFAF7; --ink:#1B1F1D; --muted:#5E6A64; --line:#DCE3DD;
+  /* === SETELAN DEKORASI: ubah warna bunga di sini === */
+  --pink:#FCE4EC; --lilac:#E3D9F8; /* warna gradasi background */
+  --r1:#E07A9B; --r2:#A93C61; --r3:#B7A1E8; --r4:#F2C14E; --leafdeco:#2F7A52;
+  --serif:'Fraunces',Georgia,serif; --sans:'DM Sans',system-ui,-apple-system,Segoe UI,sans-serif;
+}
+*{box-sizing:border-box;margin:0}
+html{scroll-behavior:smooth}
+body{font-family:var(--sans);color:var(--ink);background:var(--paper);line-height:1.6}
+a{color:inherit}
+:focus-visible{outline:3px solid var(--rose);outline-offset:2px}
+.wrap{max-width:1080px;margin:0 auto;padding:0 20px}
+.topbar{background:linear-gradient(90deg,var(--forest),var(--leaf),var(--forest));color:#E8F0EA;font-size:.85rem;text-align:center;padding:8px 12px}
+header{position:sticky;top:0;z-index:10;background:var(--paper);border-bottom:1px solid var(--line)}
+.nav{display:flex;align-items:center;justify-content:space-between;height:64px;gap:16px}
+.logo{font-family:var(--serif);font-weight:700;font-size:1.25rem;text-decoration:none;color:var(--forest)}
+nav ul{display:flex;gap:22px;list-style:none;padding:0}
+nav a{text-decoration:none;font-weight:500;color:var(--muted)}
+nav a:hover{color:var(--forest)}
+.btn{display:inline-block;border:0;cursor:pointer;font:inherit;font-weight:700;text-decoration:none;background:var(--forest);color:#fff;padding:12px 22px;border-radius:999px}
+.btn:hover{background:var(--leaf)}
+.btn.rose{background:var(--rose)}
+.btn.rose:hover{background:#963a59}
+
+/* hero */
+.hero{position:relative;overflow:hidden;padding:56px 0 72px;background:radial-gradient(60% 70% at 15% 0%,rgba(255,255,255,.7) 0,transparent 60%),linear-gradient(135deg,var(--pink) 0%,#F6DDF0 45%,var(--lilac) 100%)}
+.decor{--ds:1.15; /* ukuran dekorasi: 1 = normal, 0.6 = kecil, 1.4 = besar */
+  position:absolute;inset:0;pointer-events:none;opacity:1}
+.decor svg{position:absolute}
+.decor .lf{color:var(--leafdeco)}
+.stage{position:relative}
+.stage::before{content:"";position:absolute;inset:-8% -6%;border-radius:50%;background:radial-gradient(circle,#fff 0,#F9E8F4 52%,transparent 71%)}
+.stand{z-index:1}
+.hero .wrap{position:relative;z-index:1;display:grid;grid-template-columns:1.05fr .95fr;gap:48px;align-items:center}
+h1{font-family:var(--serif);font-weight:700;font-size:clamp(2.2rem,5vw,3.4rem);line-height:1.1;color:var(--forest);letter-spacing:-.01em}
+.lead{margin:18px 0 26px;color:var(--muted);max-width:46ch;font-size:1.08rem}
+.builder label{display:block;font-weight:700;font-size:.95rem;margin-bottom:6px}
+.builder textarea,.builder select{width:100%;font:inherit;padding:11px 13px;border:1.5px solid var(--line);border-radius:10px;background:#fff;color:var(--ink)}
+.builder textarea{resize:vertical;min-height:84px}
+.builder .row{margin-bottom:14px}
+
+/* papan ucapan preview */
+.stage{display:flex;justify-content:center}
+.stand{position:relative;width:min(100%,380px)}
+.board{background:#fff;border:10px solid var(--forest);border-radius:6px;min-height:230px;padding:26px 22px;text-align:center;display:flex;flex-direction:column;justify-content:center;gap:14px;box-shadow:0 18px 30px -18px rgba(23,53,42,.5)}
+.board small{color:var(--muted);font-size:.85rem}
+.board p{font-family:var(--serif);font-weight:500;font-size:1.35rem;line-height:1.3;color:var(--forest);overflow-wrap:anywhere}
+.board.duka{border-color:#222}.board.duka p{color:#222}
+.board.wedding{border-color:var(--rose)}.board.wedding p{color:var(--rose)}
+.bloom{display:flex;justify-content:center;margin-top:-18px;gap:0}
+.bloom svg{width:84px;height:84px;margin:0 -10px}
+.leg{width:6px;height:60px;background:var(--forest);margin:0 auto;border-radius:3px}
+.legs{display:flex;justify-content:space-between;width:50%;margin:0 auto}
+
+/* sections */
+section{padding:60px 0}
+h2{font-family:var(--serif);font-size:clamp(1.6rem,3.5vw,2.2rem);color:var(--forest);line-height:1.2;margin-bottom:8px}
+.sub{color:var(--muted);margin-bottom:26px}
+.filters{display:flex;flex-wrap:wrap;gap:8px;margin-bottom:24px}
+.filters button{font:inherit;font-weight:500;cursor:pointer;border:1.5px solid var(--line);background:#fff;color:var(--ink);padding:8px 16px;border-radius:999px}
+.filters button[aria-pressed="true"]{background:var(--forest);border-color:var(--forest);color:#fff}
+.grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(230px,1fr));gap:22px}
+.card{background:#fff;border:1px solid var(--line);border-radius:14px;overflow:hidden;display:flex;flex-direction:column}
+.thumb{position:relative;height:170px;display:grid;place-items:center;overflow:hidden}
+.thumb .lf{color:var(--leaf)}
+.thumb img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover}
+.thumb svg{width:96px;height:96px}
+.card .b{padding:16px;display:flex;flex-direction:column;gap:6px;flex:1}
+.card h3{font-family:var(--serif);font-size:1.1rem;line-height:1.3}
+.card .cat{color:var(--muted);font-size:.85rem}
+.card .price{font-weight:700;color:var(--forest);margin-top:auto;padding-top:6px}
+.card .btn{text-align:center;padding:10px;margin-top:8px;font-size:.92rem}
+#syarat{background:linear-gradient(180deg,#F4EEFB,var(--pink))}
+.alt{background-color:#fff;border-block:1px solid var(--line);background-image:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='140' height='140'%3E%3Cg fill='%23F4DEE1' fill-opacity='.7'%3E%3Cg%3E%3Ccircle cx='30' cy='20' r='7'/%3E%3Ccircle cx='40' cy='28' r='7'/%3E%3Ccircle cx='36' cy='40' r='7'/%3E%3Ccircle cx='24' cy='40' r='7'/%3E%3Ccircle cx='20' cy='28' r='7'/%3E%3C/g%3E%3Cg transform='translate(70 70)'%3E%3Ccircle cx='30' cy='20' r='7'/%3E%3Ccircle cx='40' cy='28' r='7'/%3E%3Ccircle cx='36' cy='40' r='7'/%3E%3Ccircle cx='24' cy='40' r='7'/%3E%3Ccircle cx='20' cy='28' r='7'/%3E%3C/g%3E%3C/g%3E%3Ccircle cx='30' cy='31' r='4' fill='%23F2C94C'/%3E%3Ccircle cx='100' cy='101' r='4' fill='%23F2C94C'/%3E%3C/svg%3E")}
+.alt .grid .card,.alt .contact a.link{box-shadow:0 10px 24px -18px rgba(23,53,42,.45)}
+.terms{display:grid;grid-template-columns:repeat(auto-fit,minmax(260px,1fr));gap:36px}
+.terms h3{font-family:var(--serif);font-size:1.2rem;color:var(--forest);margin-bottom:10px}
+.terms ul{padding-left:20px;color:var(--muted)}
+.terms li{margin-bottom:6px}
+.contact{display:flex;flex-wrap:wrap;gap:14px;margin-top:8px}
+.contact a.link{padding:10px 16px;border:1.5px solid var(--line);border-radius:10px;text-decoration:none;background:#fff;font-weight:500}
+.contact a.link:hover{border-color:var(--forest)}
+footer{background:var(--forest);color:#CFE0D4;padding:34px 0;font-size:.92rem}
+footer .wrap{display:flex;flex-wrap:wrap;justify-content:space-between;gap:12px}
+.wa{position:fixed;right:18px;bottom:18px;z-index:20;background:#1FA855;color:#fff;font-weight:700;text-decoration:none;padding:13px 20px;border-radius:999px;box-shadow:0 8px 20px -8px rgba(0,0,0,.4)}
+@media(max-width:760px){
+  .decor{--ds:.62;opacity:.6}
+  .hero .wrap{grid-template-columns:1fr;gap:34px}
+  nav ul{gap:14px;font-size:.92rem}
+  .nav .btn{display:none}
+}
+@media(prefers-reduced-motion:reduce){html{scroll-behavior:auto}}
+</style>
+</head>
+<body>
+
+<svg width="0" height="0" style="position:absolute" aria-hidden="true">
+  <symbol id="flower" viewBox="0 0 100 100">
+    <g fill="currentColor">
+      <ellipse cx="50" cy="26" rx="14" ry="22"/><ellipse cx="50" cy="26" rx="14" ry="22" transform="rotate(72 50 50)"/>
+      <ellipse cx="50" cy="26" rx="14" ry="22" transform="rotate(144 50 50)"/><ellipse cx="50" cy="26" rx="14" ry="22" transform="rotate(216 50 50)"/>
+      <ellipse cx="50" cy="26" rx="14" ry="22" transform="rotate(288 50 50)"/>
+    </g>
+    <circle cx="50" cy="50" r="10" fill="#F2C94C"/>
+  </symbol>
+  <symbol id="rose" viewBox="0 0 100 100">
+    <circle cx="50" cy="50" r="47" fill="currentColor"/>
+    <circle cx="50" cy="50" r="47" fill="none" stroke="#000" stroke-opacity=".12" stroke-width="3"/>
+    <g fill="none" stroke-linecap="round" stroke-width="3.2">
+      <path d="M50 50c-5 0-7-6-3-9s11-1 12 6-6 14-15 12-15-10-13-20 11-18 22-17 21 10 20 22" stroke="#000" stroke-opacity=".22"/>
+      <path d="M22 62c-6-14 0-30 14-36" stroke="#fff" stroke-opacity=".55"/>
+      <path d="M62 80c12-4 20-16 18-30" stroke="#fff" stroke-opacity=".4"/>
+    </g>
+  </symbol>
+  <symbol id="leaf" viewBox="0 0 100 100">
+    <path d="M6 94C6 42 40 6 94 6 94 62 60 94 6 94Z" fill="currentColor"/>
+    <path d="M6 94L70 30" stroke="#fff" stroke-opacity=".4" stroke-width="3" fill="none" stroke-linecap="round"/>
+  </symbol>
+</svg>
+
+<div class="topbar" id="topbar"></div>
+
+<header>
+  <div class="wrap nav">
+    <a class="logo" href="#top" id="logo"></a>
+    <nav aria-label="Menu utama">
+      <ul>
+        <li><a href="#produk">Produk</a></li>
+        <li><a href="#syarat">Syarat &amp; Ketentuan</a></li>
+        <li><a href="#kontak">Kontak</a></li>
+      </ul>
+    </nav>
+    <a class="btn" href="#kontak" data-wa>Pesan lewat WhatsApp</a>
+  </div>
+</header>
+
+<main id="top">
+  <div class="hero">
+    <div class="decor" aria-hidden="true">
+      <svg class="lf" style="right:60px;top:-10px;width:calc(130px*var(--ds));height:calc(130px*var(--ds));transform:rotate(-30deg)"><use href="#leaf"/></svg>
+      <svg class="lf" style="right:-30px;top:150px;width:calc(110px*var(--ds));height:calc(110px*var(--ds));transform:rotate(60deg)"><use href="#leaf"/></svg>
+      <svg style="right:-50px;top:-40px;width:calc(230px*var(--ds));height:calc(230px*var(--ds));color:var(--r1)"><use href="#rose"/></svg>
+      <svg style="right:150px;top:-80px;width:calc(160px*var(--ds));height:calc(160px*var(--ds));color:var(--r2)"><use href="#rose"/></svg>
+      <svg style="right:-10px;top:170px;width:calc(120px*var(--ds));height:calc(120px*var(--ds));color:var(--r3)"><use href="#rose"/></svg>
+      <svg class="lf" style="left:-20px;bottom:30px;width:calc(140px*var(--ds));height:calc(140px*var(--ds));transform:rotate(-100deg)"><use href="#leaf"/></svg>
+      <svg style="left:-60px;bottom:-60px;width:calc(210px*var(--ds));height:calc(210px*var(--ds));color:var(--r4)"><use href="#rose"/></svg>
+      <svg style="left:120px;bottom:-70px;width:calc(140px*var(--ds));height:calc(140px*var(--ds));color:var(--r1)"><use href="#rose"/></svg>
+    </div>
+    <div class="wrap">
+      <div>
+        <h1>Karangan bunga, diantar tepat waktu di Semarang</h1>
+        <p class="lead">Duka cita, ucapan selamat, sampai dekorasi wedding. Tulis ucapan Anda di bawah, lihat tampilannya di papan, lalu kirim pesanan lewat WhatsApp.</p>
+        <form class="builder" onsubmit="return false">
+          <div class="row">
+            <label for="jenis">Jenis karangan</label>
+            <select id="jenis">
+              <option value="duka">Duka Cita</option>
+              <option value="congrats">Congratulations</option>
+              <option value="wedding">Wedding</option>
+            </select>
+          </div>
+          <div class="row">
+            <label for="ucapan">Isi ucapan di papan</label>
+            <textarea id="ucapan" maxlength="140">Turut berduka cita sedalam-dalamnya. Semoga keluarga diberi ketabahan.</textarea>
+          </div>
+          <div class="row">
+            <label for="pengirim">Dari</label>
+            <textarea id="pengirim" maxlength="60" style="min-height:48px">Keluarga Besar Bapak Andi</textarea>
+          </div>
+          <a class="btn rose" id="kirim" href="#" target="_blank" rel="noopener">Kirim pesanan ke WhatsApp</a>
+        </form>
+      </div>
+      <div class="stage" aria-live="polite">
+        <div class="stand">
+          <div class="board duka" id="board">
+            <small id="bLabel">Turut Berduka Cita</small>
+            <p id="bText"></p>
+            <small id="bFrom"></small>
+          </div>
+          <div class="bloom">
+            <svg style="color:#E9A9BB"><use href="#rose"/></svg>
+            <svg style="color:#FAFAF7;filter:drop-shadow(0 1px 2px rgba(0,0,0,.25));width:100px;height:100px;z-index:1"><use href="#rose"/></svg>
+            <svg style="color:#B3476B"><use href="#rose"/></svg>
+          </div>
+          <div class="legs"><div class="leg"></div><div class="leg"></div></div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <section id="produk" class="alt">
+    <div class="wrap">
+      <h2>Pilihan karangan bunga</h2>
+      <p class="sub">Harga contoh. Ubah di bagian PRODUCTS pada file ini.</p>
+      <div class="filters" id="filters" role="group" aria-label="Filter kategori"></div>
+      <div class="grid" id="grid"></div>
+    </div>
+  </section>
+
+  <section id="syarat">
+    <div class="wrap">
+      <h2>Syarat &amp; Ketentuan</h2>
+      <p class="sub">Ringkas dan jelas sebelum Anda memesan.</p>
+      <div class="terms">
+        <div>
+          <h3>Pengiriman cepat</h3>
+          <ul>
+            <li>Diantar dengan armada toko untuk area Semarang.</li>
+            <li>Pesanan duka cita diprioritaskan.</li>
+          </ul>
+        </div>
+        <div>
+          <h3>Gratis pengiriman</h3>
+          <ul>
+            <li>Wilayah Semarang dengan minimal belanja Rp 500.000.</li>
+            <li>Di luar Semarang, ongkos menyesuaikan jarak dan jumlah pesanan.</li>
+          </ul>
+        </div>
+        <div>
+          <h3>Pembayaran</h3>
+          <ul>
+            <li>Transfer bank atau e-wallet.</li>
+            <li>Kirim bukti bayar lewat WhatsApp untuk konfirmasi.</li>
+          </ul>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section id="kontak" class="alt">
+    <div class="wrap">
+      <h2>Kontak</h2>
+      <p class="sub" id="alamat"></p>
+      <div class="contact" id="contact"></div>
+    </div>
+  </section>
+</main>
+
+<footer>
+  <div class="wrap">
+    <span id="copy"></span>
+    <span>Pengiriman cepat · Garansi produk · Pembayaran mudah</span>
+  </div>
+</footer>
+
+<a class="wa" href="#" data-wa target="_blank" rel="noopener" aria-label="Chat WhatsApp">WhatsApp</a>
+
+<script>
+/* ===== UBAH DATA DI SINI ===== */
+const CONFIG = {
+  nama: "Florist Anda",
+  kota: "Semarang",
+  sheetCsv: "",                     // opsional: link CSV dari Google Sheets (lihat panduan). Kosong = pakai produk.json
+  wa: "6285174337130",              // format 62..., tanpa + dan tanpa 0 di depan
+  alamat: "Jl. Contoh No. 1, Tembalang, Semarang",
+  topbar: "Gratis Ongkir | Garansi Produk | Pembayaran Mudah",
+  sosmed: [
+    { label: "Instagram", url: "https://instagram.com/" },
+    { label: "Facebook",  url: "https://facebook.com/" },
+    { label: "TikTok",    url: "https://tiktok.com/" },
+    { label: "Google Maps", url: "https://maps.google.com/" }
+  ]
+};
+const CATEGORIES = { duka: "Duka Cita", congrats: "Congratulations", wedding: "Wedding", custom: "Custom" };
+const TINT = { duka: "#C3CAC5", congrats: "#FBE7B5", wedding: "#F4DEE1", custom: "#D8EADF" };
+const FLOWER = { duka: "#FAFAF7", congrats: "#E09A1A", wedding: "#B3476B", custom: "#3E7B58" };
+// Cadangan: dipakai hanya jika Google Sheets dan produk.json tidak bisa dibaca.
+// Ubah produk di produk.json atau Google Sheets, bukan di sini.
+let PRODUCTS = [
+  { nama: "Papan Duka Cita Standar", kat: "duka", harga: 350000, gambar: "" },
+  { nama: "Papan Duka Cita Premium", kat: "duka", harga: 650000, gambar: "" },
+  { nama: "Standing Flower Duka", kat: "duka", harga: 900000, gambar: "" },
+  { nama: "Papan Selamat Sukses", kat: "congrats", harga: 400000, gambar: "" },
+  { nama: "Papan Grand Opening", kat: "congrats", harga: 750000, gambar: "" },
+  { nama: "Karangan Wisuda", kat: "congrats", harga: 450000, gambar: "" },
+  { nama: "Papan Happy Wedding", kat: "wedding", harga: 600000, gambar: "" },
+  { nama: "Bunga Meja Pelaminan", kat: "wedding", harga: 800000, gambar: "" },
+  { nama: "Desain Sesuai Permintaan", kat: "custom", harga: 0, gambar: "" }
+];
+/* ===== AKHIR DATA ===== */
+
+const $ = id => document.getElementById(id);
+const rp = n => n ? "Rp " + n.toLocaleString("id-ID") : "Hubungi kami";
+const wa = text => `https://wa.me/${CONFIG.wa}?text=${encodeURIComponent(text)}`;
+
+document.title = `${CONFIG.nama} – Karangan Bunga ${CONFIG.kota}`;
+$("logo").textContent = CONFIG.nama;
+$("topbar").textContent = CONFIG.topbar;
+$("alamat").textContent = CONFIG.alamat;
+$("copy").textContent = `© ${new Date().getFullYear()} ${CONFIG.nama}`;
+document.querySelectorAll("[data-wa]").forEach(a => a.href = wa(`Halo ${CONFIG.nama}, saya ingin bertanya tentang produk Anda.`));
+
+$("contact").innerHTML =
+  `<a class="link" href="${wa('Halo, saya ingin memesan karangan bunga.')}" target="_blank" rel="noopener">WhatsApp</a>` +
+  CONFIG.sosmed.map(s => `<a class="link" href="${s.url}" target="_blank" rel="noopener">${s.label}</a>`).join("");
+
+
+/* muat produk: Google Sheets -> produk.json -> cadangan di atas */
+const normKat = v => { v = (v || "").trim().toLowerCase(); for (const k in CATEGORIES) if (v === k || v === CATEGORIES[k].toLowerCase()) return k; return "custom"; };
+function parseCSV(t) {
+  const rows = []; let r = [], c = "", q = false;
+  for (let i = 0; i < t.length; i++) {
+    const ch = t[i];
+    if (q) { if (ch === '"') { if (t[i + 1] === '"') { c += '"'; i++; } else q = false; } else c += ch; }
+    else if (ch === '"') q = true;
+    else if (ch === ",") { r.push(c); c = ""; }
+    else if (ch === "\n" || ch === "\r") { if (ch === "\r" && t[i + 1] === "\n") i++; r.push(c); c = ""; rows.push(r); r = []; }
+    else c += ch;
+  }
+  if (c || r.length) { r.push(c); rows.push(r); }
+  return rows;
+}
+const fixProduk = o => ({
+  nama: String(o.nama || "").trim(),
+  kat: normKat(o.kat || o.kategori),
+  harga: parseInt(String(o.harga || "0").replace(/\D/g, ""), 10) || 0,
+  gambar: String(o.gambar || "").trim()
+});
+async function loadProducts() {
+  try {
+    if (CONFIG.sheetCsv) {
+      const res = await fetch(CONFIG.sheetCsv);
+      if (res.ok) {
+        const [head, ...rows] = parseCSV(await res.text());
+        const keys = head.map(x => x.trim().toLowerCase());
+        const list = rows.map(r => fixProduk(Object.fromEntries(keys.map((k, i) => [k, r[i]])))).filter(p => p.nama);
+        if (list.length) return list;
+      }
+    }
+  } catch (e) {}
+  try {
+    const res = await fetch("produk.json");
+    if (res.ok) { const list = (await res.json()).map(fixProduk).filter(p => p.nama); if (list.length) return list; }
+  } catch (e) {}
+  return PRODUCTS;
+}
+
+/* katalog */
+let aktif = "semua";
+function renderFilters() {
+  const keys = ["semua", ...Object.keys(CATEGORIES)];
+  $("filters").innerHTML = keys.map(k =>
+    `<button type="button" data-k="${k}" aria-pressed="${k === aktif}">${k === "semua" ? "Semua" : CATEGORIES[k]}</button>`).join("");
+}
+function renderGrid() {
+  $("grid").innerHTML = PRODUCTS.filter(p => aktif === "semua" || p.kat === aktif).map(p => `
+    <article class="card">
+      <div class="thumb" style="background:${TINT[p.kat]};color:${FLOWER[p.kat]}">${p.gambar
+          ? `<img src="${p.gambar}" alt="${p.nama}" loading="lazy">`
+          : `<svg class="lf" style="position:absolute;width:70px;height:70px;left:calc(50% + 14px);top:62px;transform:rotate(-20deg)"><use href="#leaf"/></svg><svg aria-hidden="true" style="position:relative"><use href="#rose"/></svg>`}</div>
+      <div class="b">
+        <span class="cat">${CATEGORIES[p.kat]}</span>
+        <h3>${p.nama}</h3>
+        <span class="price">${rp(p.harga)}</span>
+        <a class="btn" target="_blank" rel="noopener" href="${wa(`Halo ${CONFIG.nama}, saya ingin memesan: ${p.nama} (${CATEGORIES[p.kat]}).`)}">Pesan produk ini</a>
+      </div>
+    </article>`).join("");
+}
+$("filters").addEventListener("click", e => {
+  const b = e.target.closest("button"); if (!b) return;
+  aktif = b.dataset.k; renderFilters(); renderGrid();
+});
+$("grid").textContent = "Memuat produk...";
+loadProducts().then(list => { PRODUCTS = list; renderFilters(); renderGrid(); });
+
+/* papan ucapan */
+const LABEL = { duka: "Turut Berduka Cita", congrats: "Selamat dan Sukses", wedding: "Happy Wedding" };
+const CONTOH = {
+  duka: "Turut berduka cita sedalam-dalamnya. Semoga keluarga diberi ketabahan.",
+  congrats: "Selamat atas pencapaian Anda. Semoga terus sukses dan berkah.",
+  wedding: "Selamat menempuh hidup baru. Semoga sakinah, mawaddah, warahmah."
+};
+function updateBoard() {
+  const j = $("jenis").value;
+  $("board").className = "board " + j;
+  $("bLabel").textContent = LABEL[j];
+  $("bText").textContent = $("ucapan").value.trim() || "Tulis ucapan Anda";
+  $("bFrom").textContent = $("pengirim").value.trim() ? "Dari: " + $("pengirim").value.trim() : "";
+  $("kirim").href = wa(
+    `Halo ${CONFIG.nama}, saya ingin memesan karangan bunga ${CATEGORIES[j]}.\n\nUcapan: ${$("ucapan").value.trim()}\nDari: ${$("pengirim").value.trim()}\n\nMohon info harga, alamat pengiriman, dan waktu pengantaran.`);
+}
+$("jenis").addEventListener("change", () => { $("ucapan").value = CONTOH[$("jenis").value]; updateBoard(); });
+["ucapan", "pengirim"].forEach(id => $(id).addEventListener("input", updateBoard));
+updateBoard();
+</script>
+</body>
+</html>
